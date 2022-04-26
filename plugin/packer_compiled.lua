@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["asyncrun.vim"] = {
     loaded = true,
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\asyncrun.vim",
@@ -114,10 +109,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  cmp_luasnip = {
+  ["cmp-vsnip"] = {
     loaded = true,
-    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["filetype.nvim"] = {
     loaded = true,
@@ -129,10 +124,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["indent-blankline.nvim"] = {
+  indentLine = {
     loaded = true,
-    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indentLine",
+    url = "https://github.com/Yggdroot/indentLine"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -236,6 +231,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 

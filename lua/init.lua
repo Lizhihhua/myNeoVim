@@ -11,7 +11,6 @@ require "config/lualine"
 require "config/nvim-tree"
 require 'config/nvim-comment'
 require 'config/symbols-outline'
-require 'config/indent-blankline'
 
 -- dap调试
 require "dap/nvim-dap"

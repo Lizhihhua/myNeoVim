@@ -2,8 +2,6 @@ lua require "init"
 
 syntax enable
 
-" 设置主题
-" colorscheme default
 
 " 指定复制，粘贴软件位置
 let g:clipboard = {
@@ -33,6 +31,7 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
+
 " 关闭popupmenu和tabline
 " 不然bufferline和coc补全菜单会很丑
 set winaltkeys=no
@@ -43,28 +42,13 @@ if has('nvim')
     catch
     endtry
 endif
-" 分割线设置
-    let g:indent_blankline_char = '¦'
-    let g:indent_blankline_show_first_indent_level = v:false
 
-" 设置头文件，main函数
-    func SetCPPTitle()
-        call setline(1, "#include <bits/stdc++.h>")
-        call append(line("."), "")
-        call append(line(".")+1, "using namespace std;")
-        call append(line(".")+2, "")
-        call append(line(".")+3, "int main() {")
-        call append(line(".")+4, "")
-        call append(line(".")+5, "    return 0;")
-        call append(line(".")+6, "}")
-    endfunc 
-    func SetTitle()
-        if &filetype == 'cpp'
-            exec ":call SetCPPTitle()"
-            exec ":$"
-        endif
-    endfunc
-    nmap<leader>st :call SetTitle()<CR>
+" 分割线设置
+    let g:indentLine_enabled = 1
+    let g:indentLine_char = '¦' 
+    let g:indentLine_conceallevel = 2
+    "let g:indentLine_color_term = 255      "设置显示线为白色
+    let g:indentLine_setColors = 128       " 灰色
 
 " 光标保持在上次退出原处
 au BufReadPost * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else |exe "norm $"| endif | endif
@@ -79,3 +63,28 @@ au BufReadPost * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\
     let g:asyncrun_bell = 1 
     let g:asynctasks_term_pos = 'external'
 
+" 代码格式化
+    func! FormatSrc()
+        if &filetype == 'cpp' || &filetype == 'c'
+            exec 'silent !clang-format.exe -i -style="{'
+                    \ .'BasedOnStyle: llvm,'
+                    \ .'AlignArrayOfStructures: Left,'
+                    \ .'AlignConsecutiveMacros: Consecutive,'   
+                    \ .'AllowShortBlocksOnASingleLine: Empty,'
+                    \ .'AllowShortFunctionsOnASingleLine: Empty,'
+                    \ .'AllowShortLambdasOnASingleLine: Empty,'
+                    \ .'ColumnLimit: 80,'
+                    \ .'IndentWidth: 4'
+                    \ .'}" %'
+        endif
+    endfunc
+    nnoremap <leader>f :call FormatSrc()<CR>
+
+
+"" vsnip
+" Jump forward or backward
+    imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+    smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+    let g:vsnip_snippet_dir = "D:/.vsnip"

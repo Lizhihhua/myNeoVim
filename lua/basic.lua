@@ -34,8 +34,8 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- show the space = .
--- vim.opt.list = true
--- vim.opt.listchars = {space = '.'}
+vim.opt.list = true
+vim.opt.listchars = {space = '.'}
 
 -- allow the indent
 vim.opt.autoindent = true

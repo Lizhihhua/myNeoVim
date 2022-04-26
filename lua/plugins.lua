@@ -7,7 +7,7 @@ return require('packer').startup(function()
     -- use 'tomasr/molokai'            -- molokai主题
     use 'sainnhe/sonokai'
 
-    use "lukas-reineke/indent-blankline.nvim"      -- 分割线
+    use 'Yggdroot/indentLine'              -- 分割线
 
     -- 一键编译运行, F12编译，F5运行
     use 'skywind3000/asynctasks.vim'        -- 自定义一键编译运行, 模仿vscode
@@ -91,12 +91,12 @@ return require('packer').startup(function()
         'hrsh7th/nvim-cmp',
         commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
     } 
-    -- snippet
-    use 'L3MON4D3/LuaSnip'
-    use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    -- vsnip代码片段补全
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
     -- lspkind, 像vscode一样的补全菜单窗口
     use 'onsails/lspkind.nvim'
-    
 
     -- highlight undercursor word
     use "RRethy/vim-illuminate"       
