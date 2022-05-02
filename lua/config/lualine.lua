@@ -14,7 +14,7 @@ require 'lualine'.setup {
         lualine_b = {'diagnostics'},  -- branch, diff
         lualine_c = {'filename'},
         -- right
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},  -- fileformat
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },

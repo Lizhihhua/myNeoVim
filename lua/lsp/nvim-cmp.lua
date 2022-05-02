@@ -40,34 +40,34 @@ cmp.setup {
     },
     completion = {
         ---@usage The minimum length of a word to complete on.
-        keyword_length = 2,
+        keyword_length = 1,
     },
     -- 补全菜单排序
     sorting = {
         comparators = {
             -- The built-in comparators:
             cmp.config.compare.recently_used,
-            cmp.config.compare.kind,
-            cmp.config.compare.offset,
-            cmp.config.compare.score,
+            -- cmp.config.compare.kind,
             cmp.config.compare.length,
-            cmp.config.compare.order,
-            cmp.config.compare.exact,
-            cmp.config.compare.sort_text,
+            -- cmp.config.compare.offset,
+            -- cmp.config.compare.score,
+            -- cmp.config.compare.order,
         },
     },
     mapping = cmp.mapping.preset.insert (
     {
         ["<UP>"] = cmp.mapping.select_prev_item(),
         ["<DOWN>"] = cmp.mapping.select_next_item(),
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-        ["<C-e>"] = cmp.mapping {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        },
+        -- ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        -- ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        -- ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        -- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        -- ["<C-w>"] = cmp.mapping {
+        --     i = cmp.mapping.abort(),
+        --     c = cmp.mapping.close(),
+        -- },
+      
+        
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
         ["<CR>"] = cmp.mapping.confirm { select = true },
@@ -99,7 +99,7 @@ cmp.setup {
                     buffer = "[Buffer]",
                     vsnip = "[Snippet]",
                     nvim_lsp = "[LSP]",
-                    path = "[Path]",
+                    path = "[Path]"
                 })[entry.source.name]
 
                 return vim_item   
@@ -107,10 +107,10 @@ cmp.setup {
         })
     },
     sources = {
+        { name = "vsnip" , keyword_length = 1},
         { name = "buffer" },
-        { name = "vsnip" },
         { name = "nvim_lsp" },
-        { name = "path" },
+        { name = "path" , keyword_length = 1}
     },
     flags = {
         debounce_text_changes = 150,
@@ -132,7 +132,7 @@ cmp.setup {
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-        { name = 'buffer' }
+        { name = 'buffer', keyword_length = 1}
     }
 })
 
@@ -141,10 +141,10 @@ cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources(
     {
-        { name = 'cmdline' , keyword_length = 2}
+        { name = 'cmdline', keyword_length = 1}
     },
     {
-        { name = 'path' }
+        { name = 'path', keyword_length = 1}
     }),
     sorting = {
         comparators = {
@@ -174,21 +174,21 @@ require('lspconfig').clangd.setup {
     },
     capabilities = capabilities
 }
-require('lspconfig').jedi_language_server.setup {
+require('lspconfig').pyright.setup {
     capabilities = capabilities
 }
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.resolveSupport = {
 --     properties = { "documentation", "detail", "additionalTextEdits" },
 -- }
--- local signature_config = {
---     log_path = "C:/Users/lizhh/tmp/sig.log",
---     debug = true,
---     hint_enable = false,
---     handler_opts = { border = "single" },
---     max_width = 80,
--- }
--- require("lsp_signature").setup(signature_config)
+local signature_config = {
+    log_path = "C:/Users/lizhh/tmp/sig.log",
+    debug = true,
+    hint_enable = false,
+    handler_opts = { border = "single" },
+    max_width = 80,
+}
+require("lsp_signature").setup(signature_config)
 -- -- clangd, jedi函数显示参数窗口
 -- require("lspconfig").clangd.setup({ capabilities = capabilities })
 -- require("lspconfig").jedi_language_server.setup({ capabilities = capabilities })

@@ -8,6 +8,7 @@ vim.opt.updatetime = 500
 vim.opt.cursorline = true         -- highlight current line
 vim.opt.mouse = 'a'               -- allow you to use mouse
 vim.opt.showmatch = true          -- show the match pair
+vim.opt.showmode = false  
 
 -- encoding
 vim.opt.encoding = 'utf-8'
@@ -18,8 +19,7 @@ vim.opt.fileencodings = 'ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1'
 -- vim.opt.clipboard = vim.opt.clipboard ^ {'unnamed'}   -- clipboard
 vim.opt.completeopt = 'menu,menuone,noselect'         -- complete menu
 
--- shutdown popupmenu and tabline
-vim.opt.winaltkeys = 'no'
+-- font
 vim.opt.guifont='Consolas:h12:cANSI'
 
 -- while j, k move, current line at last in [8, maxline - 8]
@@ -60,10 +60,10 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 
-vim.opt.wildmenu = true         --
+vim.opt.wildmenu = true         -- 开启补全
 vim.opt.pumheight = 12          -- the complete menu maxHeight = 12
 
-vim.wo.signcolumn = 'no'
+vim.wo.signcolumn = 'yes'
 -- disable some useless standard plugins to save startup time
 -- these features have been better covered by plugins
 vim.g.loaded_matchparen        = 1

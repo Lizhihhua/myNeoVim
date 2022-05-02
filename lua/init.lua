@@ -12,9 +12,6 @@ require "config/nvim-tree"
 require 'config/nvim-comment'
 require 'config/symbols-outline'
 
--- dap调试
-require "dap/nvim-dap"
-
 -- cmp补全
 require 'lsp/nvim-cmp'
 require 'lsp/nvim-lspconfig'

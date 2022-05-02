@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indentLine",
     url = "https://github.com/Yggdroot/indentLine"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
@@ -138,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -149,24 +159,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
   },
-  ["nvim-dap"] = {
-    config = { "\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17dap.nvim-dap\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-ui"] = {
-    config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20dap.nvim-dap-ui\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
-  },
-  ["nvim-dap-virtual-text"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30dap.nvim-dap-virtual-text\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-virtual-text",
-    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
@@ -176,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -232,6 +229,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
   },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "C:\\Users\\lizhh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-vsnip",
@@ -240,18 +242,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17dap.nvim-dap\frequire\0", "config", "nvim-dap")
-time([[Config for nvim-dap]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
-try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20dap.nvim-dap-ui\frequire\0", "config", "nvim-dap-ui")
-time([[Config for nvim-dap-ui]], false)
--- Config for: nvim-dap-virtual-text
-time([[Config for nvim-dap-virtual-text]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30dap.nvim-dap-virtual-text\frequire\0", "config", "nvim-dap-virtual-text")
-time([[Config for nvim-dap-virtual-text]], false)
 if should_profile then save_profiles() end
 
 end)

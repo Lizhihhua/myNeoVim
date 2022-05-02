@@ -13,17 +13,28 @@ local function maplua(key, txt)
 end
 
 -- keymaps
+
 -- j, 上，k下
 mapkey('n', 'j', 'k')
 mapkey('n', 'k', 'j')
 mapkey('v', 'j', 'k')
 mapkey('v', 'k', 'j')
 
+
+
 -- H第一个非空个字符，L最后一个非空字符
 mapkey('n', 'H', '^')
 mapkey('n', 'L', '$')
 mapkey('v', 'H', '^')
 mapkey('v', 'L', '$')
+
+vim.api.nvim_set_keymap('s', 'j', '<BS>ij', {noremap=true})
+vim.api.nvim_set_keymap('s', 'k', '<BS>ik', {noremap=true})
+vim.api.nvim_set_keymap('s', 'h', '<BS>ih', {noremap=true})
+vim.api.nvim_set_keymap('s', 'l', '<BS>il', {noremap=true})
+vim.api.nvim_set_keymap('s', 'H', '<BS>iH', {noremap=true})
+vim.api.nvim_set_keymap('s', 'L', '<BS>iL', {noremap=true})
+
 
 -- C-c, 复制, C-v粘贴, C-x剪切, C-z撤销, C-a全选
 mapkey('n', '<C-c>', '"+y')
@@ -38,7 +49,15 @@ vim.api.nvim_set_keymap('i', '<C-v>', '<ESC>"+p<ESC>i', {noremap=true})
 vim.api.nvim_set_keymap('n', 'xa', ':xa<CR>', {noremap=true})   -- xa保存所有文件并退出
 vim.api.nvim_set_keymap('i', '<C-s>', '<ESC>:w<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap=true})
+vim.api.nvim_set_keymap('s', '<C-s>', '<ESC>:w<CR>', {noremap=true})
 
+-- C-a，开头，C-e结尾
+vim.api.nvim_set_keymap('i', '<C-a>', '<ESC>^i', {noremap=true})
+vim.api.nvim_set_keymap('i', '<C-e>', '<ESC>A', {noremap=true})
+vim.api.nvim_set_keymap('n', '<C-a>', '<ESC>^', {noremap=true})
+vim.api.nvim_set_keymap('n', '<C-e>', '<ESC>$', {noremap=true})
+
+        -- hello
 -- tab, shift-tab回退
 mapkey('n', '<tab>', 'v>')
 mapkey('n', '<s-tab>', 'v<')
@@ -50,7 +69,7 @@ mapkey('n', '<CR>', 'o<ESC>')
 
 -- NvimTree
 mapcmd('<leader>nt', 'NvimTreeToggle')
--- mapcmd('<leader>nf', 'NvimTreeFocus')
+mapcmd('<leader>nf', 'NvimTreeFocus')
 
 -- Telescope
 -- 寻找文件
@@ -84,9 +103,9 @@ mapkey('n', '<leader>sw', '/\\<lt>\\><left><left>')
 mapcmd('<C-t>', 'FloatermToggle')
 vim.api.nvim_set_keymap('t', '<C-t>', ':FloatermToggle<CR>', {noremap=true})
 
-
--- 查看变量的值
-vim.api.nvim_set_keymap('v', 'K', ':lua require("dapui").eval()<CR>', {noremap=true})
+-- 退出
+vim.api.nvim_set_keymap('t', '<C-q>', ':q!<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<C-q>', ':q!<CR>', {noremap=true})
 
 -- 注释
 mapcmd('<C-/>', 'CommentToggle')
@@ -98,22 +117,16 @@ vim.api.nvim_set_keymap('n', '<leader>p', '<cmd>lua vim.diagnostic.goto_prev()<C
 vim.api.nvim_set_keymap('n', '<leader>n', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
 -- gd就是定义(实现)的地方，gD就是声明的地方
-vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 -- vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 -- symbols-outline
-mapcmd('<F3>', 'SymbolsOutline')
+mapcmd('<F4>', 'SymbolsOutline')
 
 -- asynctasks, asyncrun
 mapcmd('<F5>', 'AsyncTask file-run')
-mapcmd('<F12>', 'AsyncTask file-build')
+mapcmd('<F9>', 'AsyncTask file-build')
 
--- nvim.dap设置
-mapcmd('<F4>', 'lua require"dap".continue()')
-mapcmd('<F6>', 'lua require"dap".terminate()')
-mapcmd('<F10>', 'lua require"dap".step_over()')
-mapcmd('<F11>', 'lua require"dap".step_into()')
-mapcmd('<F9>', 'lua require"dap".toggle_breakpoint()')

@@ -59,27 +59,8 @@ return require('packer').startup(function()
     -- auto-pairs
     use 'jiangmiao/auto-pairs'              
 
-    -- 代码调试基础插件
-    use {
-        "mfussenegger/nvim-dap",
-        config = function()
-            require("dap.nvim-dap")
-        end
-    }
-    -- 为代码调试提供内联文本
-    use {
-        "theHamsta/nvim-dap-virtual-text",
-        config = function()
-            require("dap.nvim-dap-virtual-text")
-        end
-    }
-    -- 为代码调试提供 UI 界面
-    use {
-        "rcarriga/nvim-dap-ui",
-        config = function()
-            require("dap.nvim-dap-ui")
-        end
-    }
+    -- nvim-treesitter
+    use 'nvim-treesitter/nvim-treesitter'
 
     -- cmp自动补全
     use 'neovim/nvim-lspconfig'
@@ -90,16 +71,26 @@ return require('packer').startup(function()
     use {
         'hrsh7th/nvim-cmp',
         commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
-    } 
+    }  
     -- vsnip代码片段补全
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
+    use "ray-x/lsp_signature.nvim"   -- 参数提示
 
     -- lspkind, 像vscode一样的补全菜单窗口
     use 'onsails/lspkind.nvim'
 
     -- highlight undercursor word
     use "RRethy/vim-illuminate"       
+
+    -- vim-markdown-preview
+
+    use 'iamcco/markdown-preview.nvim'
+
+    -- vim-surround
+    use 'tpope/vim-surround'
+
+
 end)
 
 
